@@ -13,4 +13,5 @@ export interface Question {
     text: string;
     imageSrc: string;
     answers: string[];
+    correctAnswer: number;
 }

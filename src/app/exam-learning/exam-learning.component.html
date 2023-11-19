@@ -1,15 +1,19 @@
-<div *ngFor="let category of getQuestionCategories() ">
-<h2 >{{category}}</h2>
-<div *ngFor="let question of getQuestionsOfCategory(category)">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{question.text}}</h5>
-            <img src="{{question.imageSrc}}" class="card-img-top" alt="..." *ngIf="question.imageSrc">
-            <p class="card-text">{{question.answers[0]}}</p>
-            <p class="card-text">{{question.answers[1]}}</p>
-            <p class="card-text">{{question.answers[2]}}</p>
-            <p class="card-text">{{question.answers[3]}}</p>
+<div class="card" style="width: 18rem;" *ngIf="currentQuestion" [ngClass]="phase">
+    <div class="card-body">
+        <h5 class="card-title">{{currentQuestion.text}}</h5>
+        <img src="{{currentQuestion.imageSrc}}" class="card-img-top" alt="..." *ngIf="currentQuestion.imageSrc">
+
+        <div *ngFor="let answer of currentQuestion.answers; let i = index">
+            <div class="form-check card-text" [class.selected]="selectedAnswer === i">
+                <input class="form-check-input" type="radio" name="answer" id="answer{{i}}" [(ngModel)]="selectedAnswer" [value]="i"  (click)="selectAnswer(i)">
+                <label class="form-check-label" for="answer{{i}}">
+                    {{answer}}
+                    <i *ngIf="currentQuestion.correctAnswer === i && (phase === 'correct' || phase==='wrong')" class="bi bi-check-circle-fill"></i>
+                    <i *ngIf="currentQuestion.correctAnswer !== i && i===selectedAnswer && phase === 'wrong'" class="bi bi-exclamation-circle-fill"></i>
+                </label>
+            </div>
         </div>
+        <button type="button" class="btn btn-primary" (click)="checkAnswer()" [disabled]="selectedAnswer === null" *ngIf="phase === 'showQuestion'">Weiter</button>
+        <button type="button" class="btn btn-primary" (click)="nextQuestion()" *ngIf="phase === 'correct' || phase === 'wrong'">Weiter</button>
     </div>
 </div>
-

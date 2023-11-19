@@ -49,6 +49,9 @@ export class QuestionService {
                     if (data) {
                         result.set(category.name, data);
                         console.log("Loaded " + data.length + " questions for " + category + " in " + exam);
+                        data.forEach(question => {
+                            question.correctAnswer = 0;
+                        });
                     }
                 })
                 .catch(err => console.log(err));
