@@ -1,0 +1,19 @@
+<h1>{{examName}}</h1>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Prüfung</h5>
+        <p class="card-text">Fragen wie in der theoretischen Prüfung beantworten</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;" (click)="gotoLearning()">
+    <div class="card-body">
+        <h5 class="card-title">Lernen</h5>
+        <p class="card-text">Lernen der notwendigen Fragen für den Führerschein</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Aktueller Stand</h5>
+        <app-exam-status></app-exam-status>
+    </div>

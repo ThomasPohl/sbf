@@ -1,0 +1,15 @@
+<div *ngFor="let category of getQuestionCategories() ">
+<h2 >{{category}}</h2>
+<div *ngFor="let question of getQuestionsOfCategory(category)">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{question.text}}</h5>
+            <img src="{{question.imageSrc}}" class="card-img-top" alt="..." *ngIf="question.imageSrc">
+            <p class="card-text">{{question.answers[0]}}</p>
+            <p class="card-text">{{question.answers[1]}}</p>
+            <p class="card-text">{{question.answers[2]}}</p>
+            <p class="card-text">{{question.answers[3]}}</p>
+        </div>
+    </div>
+</div>
+
