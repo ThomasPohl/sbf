@@ -43,7 +43,7 @@ export class QuestionService {
     async loadQuestionsOfExam(exam: string): Promise<Map<string, Question[]>> {
         console.log('loadQuestionsOfExam');
         let result: Map<string, Question[]> = new Map<string, Question[]>();
-        const requests = this.questionOverview.find(overview => overview.name == exam)!.categories.map(category => {
+        const requests = this.questionOverview.find(overview => overview.shortName == exam)!.categories.map(category => {
             console.log('loadQuestionsOfExam ' + category.url);
             return this.http.get<Question[]>(category.url).toPromise()
                 .then(data => {
