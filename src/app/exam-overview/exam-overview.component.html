@@ -1,6 +1,6 @@
 <h2>Wähle deine Prüfung</h2>
 
-<div *ngFor="let exam of exams" class="card exam" style="width: 18rem;" (click)="navigateToExam(exam)">
+<div *ngFor="let exam of exams" class="card exam" style="width: 18rem;" (click)="navigateToExam(exam.shortName)">
     <div class="card-body">
         <h3>{{exam}}</h3>
     </div>

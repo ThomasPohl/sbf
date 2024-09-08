@@ -1,5 +1,6 @@
 export interface QuestionOverview {
     name: string;
+    shortName: string;
     categories: Category[];
     distribution: string;
 }

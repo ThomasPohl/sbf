@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Question, QuestionOverview } from './question-overview';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { Exam } from './exam';
 
 @Injectable({ providedIn: 'root' })
 export class QuestionService {
@@ -10,7 +11,7 @@ export class QuestionService {
         console.log('constructor');
         this.loadQuestionOverview().then(() => {
             console.log(this.questionOverview);
-            this.questionOverview.forEach(overview => this.loadQuestionsOfExam(overview.name).then(questions => this.questions.set(overview.name, questions)));
+            this.questionOverview.forEach(overview => this.loadQuestionsOfExam(overview.shortName).then(questions => this.questions.set(overview.name, questions)));
         }
         );
     }
@@ -30,8 +31,8 @@ export class QuestionService {
     console.log('complete');
     }
 
-    getExams(): string[] {
-        return this.questionOverview ? this.questionOverview.map(overview => overview.name) : [];
+    getExams(): Exam[] {
+        return this.questionOverview ? this.questionOverview.map(overview => new Exam( overview.name, overview.shortName)) : [];
     }
 
     getQuestionsOfExam(exam: string): Map<string, Question[]> {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionService } from '../question-service';
 import { Router } from '@angular/router';
+import { Exam } from '../exam';
 
 @Component({
   selector: 'app-exam-overview',
@@ -14,7 +15,7 @@ export class ExamOverviewComponent {
 
   constructor(private QuestionService: QuestionService, private _router: Router) { }
 
-  get exams(): string[] {
+  get exams(): Exam[] {
     return this.QuestionService.getExams();
   }
 
