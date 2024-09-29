@@ -5,11 +5,12 @@ import { QuestionService } from '../question-service';
 import { Question } from '../question-overview';
 import { materialize } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import {LogoComponent} from "../logo/logo.component";
 
 @Component({
   selector: 'app-exam-learning',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LogoComponent],
   templateUrl: './exam-learning.component.html',
   styleUrl: './exam-learning.component.scss'
 })
@@ -39,7 +40,7 @@ export class ExamLearningComponent implements OnInit {
 
 
   /**
-   * 
+   *
    * @param question Shuffle the answers of the question
    * The former correct answer is saved in question.correctAnswer and needs to be updated to the new index
    */
@@ -63,6 +64,7 @@ export class ExamLearningComponent implements OnInit {
   }
 
   getQuestionCategories(): string[] {
+    console.log('getQuestionCategories for ' + this.examName);
     if (this.examName == null) {
       return [];
     } else {
@@ -79,7 +81,7 @@ export class ExamLearningComponent implements OnInit {
   }
 
   selectAnswer(answer: number): boolean {
-    
+
     if (this.phase != 'showQuestion') {
       console.log('selectAnswer ignored');
       return false;

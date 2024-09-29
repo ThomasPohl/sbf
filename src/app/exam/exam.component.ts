@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExamStatusComponent } from '../exam-status/exam-status.component';
+import {LogoComponent} from "../logo/logo.component";
 
 @Component({
   selector: 'app-exam',
   templateUrl: './exam.component.html',
   standalone: true,
-  imports: [ExamStatusComponent],
+  imports: [ExamStatusComponent, LogoComponent],
   styleUrl: './exam.component.scss'
 })
 export class ExamComponent {

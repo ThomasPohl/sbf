@@ -1,0 +1,53 @@
+.logo {
+  width: 100px;
+  height: 100px;
+  background: white;
+  overflow: hidden;
+  color: #1e5799;
+  div {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -15px;
+    font-weight: bold;
+  }
+  .line1 {
+    letter-spacing: 6px;
+    transform: scaleY(0.8);
+  }
+  .line2{
+    letter-spacing: 3px;
+    transform: scaleY(0.8);
+
+  }
+
+  .line3 {
+    font-size: 40px;
+    color: #ADD8E6;
+    position: relative;
+    margin-top: 0px;
+    //transform: scaleY(2);
+
+  }
+
+  .line4 {
+    margin-top:5px ;
+    font-size: 15px;
+    letter-spacing: 2.2px;
+  }
+  .o-container {
+    position: relative;
+    display: inline-block;
+  }
+  .o-container::before {
+    content: '\2693'; /* Unicode for anchor symbol */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    font-size: 0.8em; /* Adjust size as needed */
+    color: inherit;
+  }
+}
