@@ -1,3 +1,15 @@
 .card.exam {
     cursor: pointer;
 }
+
+.card {
+  margin: 20px;
+}
+
+.card-body {
+  padding: 5px;
+  font-size: 4px;
+  h5 {
+    margin: 0;
+  }
+}

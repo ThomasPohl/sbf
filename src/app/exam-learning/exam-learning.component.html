@@ -1,6 +1,6 @@
-<app-logo></app-logo>
 <div class="card" *ngIf="currentQuestion" [ngClass]="phase">
     <div class="card-body">
+      <div class="identifier">{{currentQuestion.id}}</div>
         <h5 class="card-title">{{currentQuestion.text}}</h5>
         <img src="{{currentQuestion.imageSrc}}" class="card-img-top" alt="..." *ngIf="currentQuestion.imageSrc">
 

@@ -1,8 +1,9 @@
-<app-logo></app-logo>
 <h2>Wähle deine Prüfung</h2>
 
-<div *ngFor="let exam of exams" class="card exam" style="width: 18rem;" (click)="navigateToExam(exam.shortName)">
+<div class="card-container">
+  <div *ngFor="let exam of exams" class="card exam" (click)="navigateToExam(exam.shortName)">
     <div class="card-body">
-        <h3>{{exam.name}}</h3>
+      <h5>{{exam.name}}</h5>
     </div>
+  </div>
 </div>

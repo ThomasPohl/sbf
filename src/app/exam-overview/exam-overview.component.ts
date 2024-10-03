@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QuestionService } from '../question-service';
+import { QuestionService } from '../services/question-service';
 import { Router } from '@angular/router';
 import { Exam } from '../exam';
 import {LogoComponent} from "../logo/logo.component";
