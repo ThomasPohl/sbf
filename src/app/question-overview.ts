@@ -15,4 +15,5 @@ export interface Question {
     imageSrc: string;
     answers: string[];
     correctAnswer: number;
+    successfulAttempts: number;
 }

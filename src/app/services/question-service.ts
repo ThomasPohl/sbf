@@ -68,7 +68,7 @@ export class QuestionService {
             console.log("Loaded " + data.length + " questions for " + category + " in " + exam);
             data.forEach(question => {
               //Load from storage
-              this.storageService.getCorrectAnswerCount(exam, question.id)
+              question.successfulAttempts = this.storageService.getCorrectAnswerCount(exam, question.id);
               question.correctAnswer = 0;
             });
           }

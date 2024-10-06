@@ -104,11 +104,11 @@ export class ExamLearningComponent implements OnInit {
 
   checkAnswer(): void {
     if (this.selectedAnswer == this.currentQuestion?.correctAnswer) {
-      this.incrementCorrectAnswerCount();
+      this.incrementSuccessfulAttempts();
       this.phase = 'correct';
     } else {
       this.phase = 'wrong';
-      this.resetCorrectAnswerCount();
+      this.resetSuccessfulAttempts();
     }
   }
 
@@ -118,17 +118,16 @@ export class ExamLearningComponent implements OnInit {
     this.selectedAnswer = null;
   }
 
-  incrementCorrectAnswerCount(): void {
+  incrementSuccessfulAttempts(): void {
     if (this.currentQuestion) {
-      this.storageService.incrementCorrectAnswerCount(this.examName || '', this.currentQuestion?.id || '');
-      this.currentQuestion.correctAnswer++;
+      this.storageService.setSuccessfulAttempts(this.examName || '', this.currentQuestion?.id || '', ++this.currentQuestion.successfulAttempts);
     }
   }
 
-  resetCorrectAnswerCount(): void {
+  resetSuccessfulAttempts(): void {
     if (this.currentQuestion) {
-      this.storageService.resetCorrectAnswerCount(this.examName || '', this.currentQuestion?.id || '');
-      this.currentQuestion.correctAnswer=0;
+      this.storageService.resetSuccessfulAttempts(this.examName || '', this.currentQuestion?.id || '');
+      this.currentQuestion.successfulAttempts=0;
     }
   }
 

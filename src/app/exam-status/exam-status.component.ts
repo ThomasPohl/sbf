@@ -23,7 +23,7 @@ export class ExamStatusComponent {
     this.questionService.getQuestionsOfExam(this.examName)
       .forEach((questions, category )=>{
         //filter questions with correctAnswer > 3
-        greenCount += questions.filter(question => question.correctAnswer >= 3).length;
+        greenCount += questions.filter(question => question.successfulAttempts >= 3).length;
       });
     return greenCount;
   }
@@ -33,7 +33,7 @@ export class ExamStatusComponent {
     this.questionService.getQuestionsOfExam(this.examName)
       .forEach((questions, category )=>{
         //filter questions with correctAnswer > 3
-        yellowCount += questions.filter(question => question.correctAnswer > 0 &&  question.correctAnswer<3).length;
+        yellowCount += questions.filter(question => question.successfulAttempts > 0 &&  question.successfulAttempts<3).length;
       });
     return yellowCount;
   }
@@ -43,7 +43,7 @@ export class ExamStatusComponent {
     this.questionService.getQuestionsOfExam(this.examName)
       .forEach((questions, category )=>{
         //filter questions with correctAnswer > 3
-        redCount += questions.filter(question => question.correctAnswer ==0).length;
+        redCount += questions.filter(question => question.successfulAttempts ==0).length;
       });
     return redCount;
   }
